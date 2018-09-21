@@ -1,0 +1,47 @@
+
+{{# if(d.module === 'account' || d.module === 'history') { }}
+  <aside>
+    {{# var len = d.data.aside.length; }}
+    {{# if(len > 0) { }}
+    <ul class="aside-menu">
+      {{# for(var i = 0; i < len; i++) { }}
+      {{# if(d.curAside == d.data.aside[i]._id) { }}
+      <li class="aside-menu-item item-active"><a href="javascript:;">{{ d.data.aside[i].name }}</a></li>
+      {{# } else { }}
+      <li class="aside-menu-item"><a href="/riskmonitor/account?_id={{ d.data.aside[i]._id }}">{{ d.data.aside[i].name }}</a></li>
+      {{# } }}
+      {{# } }}
+    </ul>
+    {{# } }}
+  </aside>
+{{# } else if(d.module === 'monitor') { }}
+<aside>
+  {{# let len = d.data.aside.length; }}
+  {{# if(len > 0) { }}
+  <ul class="aside-menu">
+    {{# for(var i = 0; i < len; i++) { }}
+    {{# if(d.curAside == i) { }}
+    <li class="aside-menu-item item-active"><a href="javascript:;">{{ d.data.aside[i].city }}</a></li>
+    {{# } else { }}
+    <li class="aside-menu-item"><a href="/riskmonitor/monitor?index={{ i }}">{{ d.data.aside[i].city }}</a></li>
+    {{# } }}
+    {{# } }}
+  </ul>
+  {{# } }}
+</aside>
+{{# } else { }}
+<aside>
+  {{# var len = d.data.aside.length; }}
+  {{# if(len > 0) { }}
+  <ul class="aside-menu">
+    {{# for(var i = 0; i < len; i++) { }}
+    {{# if(d.curAside == d.data.aside[i].id) { }}
+    <li class="aside-menu-item item-active"><a href="javascript:;">{{ d.data.aside[i].name }}</a></li>
+    {{# } else { }}
+    <li class="aside-menu-item"><a href="{{ d.data.aside[i].url }}">{{ d.data.aside[i].name }}</a></li>
+    {{# } }}
+    {{# } }}
+  </ul>
+  {{# } }}
+</aside>
+{{# } }}

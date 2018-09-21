@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+</head>
+<body style="color: red">
+  <h1>{{ d.error.status }} - {{ d.error.message }}</h1>
+  <p>{{ d.error.stack.replace(/( at)/g, '<br>&emsp;&emsp;at') }}</p>
+</body>
+</html>

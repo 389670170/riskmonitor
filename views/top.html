@@ -1,0 +1,26 @@
+<header>
+  <div class="header-left">
+    <h2 class="app-title">AI智客量化交易系统</h2>
+  </div>
+  <div class="header-right">
+    <div class="nav-tag{{# if(d.tagIndex === 0) { }} tag-active{{# } }}">
+      <a href="{{# if(d.tagIndex === 0) { }}javascript:;{{# } else { }}/riskmonitor/account{{# } }}"><i class="iconfont icon-account_search tag-icon"></i>账户信息</a>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="nav-tag{{# if(d.tagIndex === 1) { }} tag-active{{# } }}">
+      <a href="{{# if(d.tagIndex === 1) { }}javascript:;{{# } else { }}/riskmonitor/monitor{{# } }}"><i class="iconfont icon-monitor tag-icon"></i>实时监控</a>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="nav-tag{{# if(d.tagIndex === 2) { }} tag-active{{# } }}">
+      <a href="{{# if(d.tagIndex === 2) { }}javascript:;{{# } else { }}/riskmonitor/log{{# } }}"><i class="iconfont icon-logs tag-icon"></i>日志</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-menu nav-menu-dropdown">
+        {{ d.username }}&nbsp;<i class="iconfont icon-arrow_bottom"></i>
+        <ul class="nav-child">
+          <li><a href="/riskmonitor/logout">注销</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

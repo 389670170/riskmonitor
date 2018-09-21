@@ -1,0 +1,191 @@
+<div class="account-statistics scrolly">
+  <{# if(d.data.data.a === 1) { }>
+  <p>暂无账户统计信息</p>
+  <{# } else { }>
+  <div class="title-group">
+    <span class="sub-title"><a href="/riskmonitor/account?_id=<{ d.curAside }>" class="back-link">日线财务账单</a> &gt; 历史记录</span>
+  </div>
+  <div class="statistics-container">
+    <div class="content-left">
+      <div class="statistics-title">基本信息</div>
+      <div class="statistics-content">
+        <div class="statistics-item">
+          <div class="statistics-item-name">账户名称：</div>
+          <div class="statistics-item-value">日线财务账单</div>
+        </div>
+        <div class="statistics-item mt8">
+          <div class="statistics-item-name">成长：</div>
+          <div class="statistics-item-value"><{d.data.data.total.grow}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">利润：</div>
+          <div class="statistics-item-value"><{d.data.data.total.profit}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">最大跌幅：</div>
+          <div class="statistics-item-value statistics-item-value--error"><{d.data.data.total.bigEquity}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">周：</div>
+          <div class="statistics-item-value"><{d.data.data.total.weekend}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">最近交易：</div>
+          <div class="statistics-item-value"><{d.data.data.total.lastp}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">每周交易：</div>
+          <div class="statistics-item-value"><{d.data.data.total.week}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">平均持有时间：</div>
+          <div class="statistics-item-value"><{d.data.data.total.aveTime}></div>
+        </div>
+        <div class="statistics-item mt8">
+          <div class="statistics-item-name">经济商：</div>
+          <div class="statistics-item-value"><{d.data.data.total.company}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">杠杆：</div>
+          <div class="statistics-item-value"><{d.data.data.total.lever}></div>
+        </div>
+        <div class="statistics-item">
+          <div class="statistics-item-name">交易模式：</div>
+          <div class="statistics-item-value"><{d.data.data.total.tradingMode}></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-right">
+      <div class="statistics-title">详细信息</div>
+      <div class="detail-content">
+        <div class="detail-left">
+          <div class="statistics-item">
+            <div class="statistics-item-name">交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.totalLength}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">盈利交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.profitable}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">亏损交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.loss}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">最好交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.best}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">最差交易：</div>
+            <div class="statistics-item-value statistics-item-value--error"><{d.data.data.total.worst}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">毛利：</div>
+            <div class="statistics-item-value"><{d.data.data.total.grossProfit}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">毛利亏损：</div>
+            <div class="statistics-item-value statistics-item-value--error"><{d.data.data.total.GrossProfitLoss}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">最大连续赢利：</div>
+            <div class="statistics-item-value"><{d.data.data.total.cProfitability}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">最大连续盈利：</div>
+            <div class="statistics-item-value"><{d.data.data.total.maxProfitability}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">夏普比率：</div>
+            <div class="statistics-item-value"><{d.data.data.total.sharpe}></div>
+          </div>
+        </div>
+        <div class="detail-right">
+          <div class="statistics-item">
+            <div class="statistics-item-name">采收率：</div>
+            <div class="statistics-item-value"><{d.data.data.total.oilRecovery}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">长期交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.longTerm}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">短期交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.shortTerm}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">利润因子：</div>
+            <div class="statistics-item-value"><{d.data.data.total.grow}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">预期回报：</div>
+            <div class="statistics-item-value"><{d.data.data.total.expected}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">平均利润：</div>
+            <div class="statistics-item-value"><{d.data.data.total.averageProfit}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">平均损失：</div>
+            <div class="statistics-item-value statistics-item-value--error"><{d.data.data.total.averageLoss}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">最大连续失误：</div>
+            <div class="statistics-item-value statistics-item-value--error"><{d.data.data.total.cLoss}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">最大连续亏损：</div>
+            <div class="statistics-item-value statistics-item-value--error"><{d.data.data.total.maxLoss}></div>
+          </div>
+          <div class="statistics-item mt8">
+            <div class="statistics-item-name">每月增长：</div>
+            <div class="statistics-item-value"><{d.data.data.total.monthlyGrowth}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">年度预测：</div>
+            <div class="statistics-item-value"><{d.data.data.total.annualForecast}></div>
+          </div>
+          <div class="statistics-item">
+            <div class="statistics-item-name">算法交易：</div>
+            <div class="statistics-item-value"><{d.data.data.total.algorithmTrading}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="allot-data">
+    <div class="statistics-title">分配</div>
+    <table class="table statistics-table">
+      <tbody>
+      <tr>
+        <td>交易品种</td>
+        <td>交易</td>
+        <td class="sell-name">Sell</td>
+        <td>Buy</td>
+      </tr>
+      <{# for(let i = 0, len = d.data.data.total.sym.length; i < len; i++) { }>
+      <tr>
+        <td><{d.data.data.total.sym[i].symbol}></td>
+        <td>
+          <span class="item-data"><{d.data.data.total.sym[i].sumNum}></span>
+          <div class="data-chart-panel">
+            <div class="trade-chart" style="width: <{d.data.data.total.sym[i].sum*100}>%"></div>
+          </div>
+        </td>
+        <td>
+          <div class="data-chart-panel">
+            <div class="sell-chart" style="width:  <{d.data.data.total.sym[i].sell*100}>%"></div>
+          </div>
+        </td>
+        <td>
+          <div class="data-chart-panel">
+            <div class="buy-chart" style="width:  <{d.data.data.total.sym[i].buy*100}>%"></div>
+          </div>
+        </td>
+      </tr>
+      <{# } }>
+      </tbody>
+    </table>
+  </div>
+  <{# } }>
+</div>

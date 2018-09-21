@@ -1,0 +1,282 @@
+/**!
+ * UI 通用模块样式
+ * @author: haoran.shu
+ * @datetime: 2017-11-22 15:58:03
+ */
+/* reset: start */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  /* 去除链接默认的下划线，提高文字可读性 */
+  background-color: transparent;
+  /* 去掉 IE 10+ 点击链接时的灰色背景 */
+}
+div {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  /* 10/16=62.5% */
+}
+body {
+  font: 1.4rem Helvetica Neue,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif;
+  line-height: 1.4;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 修正所有浏览器中字体不继承的问题 */
+  font-size: 100%;
+  /* 修正所有浏览器中字号不继承的问题 */
+  margin: 0;
+  /* 修正 Firefox 3+， Safari5 和 Chrome 中外边距不同的问题 */
+  /* 改善在所有浏览器下的垂直对齐方式 */
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+/**
+ * 中文小于 12px 可读性很差
+ * 1. 统一 IE 6-7 中字体大小
+ * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 22px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 12px;
+}
+/* html 元素 */
+header,
+aside,
+footer {
+  display: block;
+}
+/* ==========================================================================
+ 表格
+ ========================================================================== */
+/**
+ * 合并单元格边框
+ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1.6rem;
+}
+table th {
+  font-weight: normal;
+  text-align: left;
+}
+/**
+* 单元格添加边框
+*/
+table th,
+table td {
+  padding: 8px 10px;
+}
+/* form 表单模块: start */
+.rm-form {
+  font-size: 1.4rem;
+}
+.rm-form input[type="text"],
+.rm-form input[type="password"],
+.rm-form textarea {
+  width: 160px;
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-size: 1.3rem;
+}
+.rm-form input[type="text"]:focus,
+.rm-form input[type="password"]:focus,
+.rm-form textarea:focus {
+  outline: 0;
+  border-color: #129FEA;
+}
+.rm-form select {
+  width: 160px;
+  height: 2.25em;
+  font-size: 1.3rem;
+  border: 1px solid #ccc;
+  background-color: white;
+  vertical-align: middle;
+}
+.rm-form select:focus {
+  border-color: #129FEA;
+}
+.rm-form-item {
+  margin: 5px;
+}
+.rm-form label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1em 0 0;
+}
+/* Aligned Forms */
+.rm-form-aligned .rm-control-group {
+  margin-bottom: 0.5em;
+}
+.rm-form-aligned .rm-controls {
+  margin-top: 1em;
+}
+/* form 表单模块: end */
+/* 常用模块：start */
+.tar {
+  text-align: right;
+}
+.hide {
+  display: none;
+}
+/* 常用模块：end */
+/* 按钮：start */
+.rm-btn {
+  font-family: inherit;
+  font-size: 1.4rem;
+  padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  border: none;
+  background-color: #E6E6E6;
+  border-radius: 4px;
+  outline: none;
+  vertical-align: middle;
+}
+.rm-btn:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+.rm-btn-small {
+  padding: .2em .7em;
+}
+.rm-btn-secondary {
+  background: #36c2fd;
+  color: white;
+}
+/* 按钮: end */
+/* 分页：start */
+.rm-page {
+  margin: 15px 0;
+  font-size: 16px;
+  display: table;
+  border-collapse: collapse;
+}
+.rm-page a,
+.rm-page span {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 15px;
+  height: 35px;
+  font-size: 1.6rem;
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+  color: white;
+}
+/* 当前页码样式 */
+.rm-page-curr {
+  background-color: #36c2fd;
+}
+/* 分页：end */
+/* 滚动条: start */
+.scrolly {
+  overflow-y: auto;
+  scrollbar-face-color: #8A90B4;
+  scrollbar-shadow-color: #8A90B4;
+  scrollbar-highlight-color: #33407D;
+  scrollbar-track-color: #33407D;
+  scrollbar-arrow-color: #33407D;
+}
+/* 设置滚动条的样式,滚动条整体部分(宽度) */
+.scrolly::-webkit-scrollbar {
+  width: 10px;
+}
+/* 滚动条滑块 */
+.scrolly::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #8A90B4;
+}
+/* 滚动条: end */
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-image: url(/riskmonitor/images/login_bg.jpg);
+  background-size: 100% 100%;
+  font-size: 0;
+  text-align: center;
+}
+div.main-panel {
+  display: inline-block;
+  vertical-align: middle;
+  width: 394px;
+  min-height: 325px;
+  background-color: rgba(255, 255, 255, 0.95);
+  opacity: 0.95;
+  color: black;
+  border-radius: 5px;
+  padding-top: 23px;
+}
+.hock {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+.rm-form {
+  font-size: 1.6rem;
+  margin-top: 35px;
+}
+.rm-form input[type="text"],
+.rm-form input[type="password"] {
+  width: 296px;
+  height: 44px;
+  font-size: 1.4rem;
+  border-radius: 4px;
+}
+.rm-form input[type="password"] {
+  margin-top: 23px;
+}
+.rm-form .rm-btn {
+  width: 296px;
+  padding: 0;
+  height: 44px;
+  margin-top: 23px;
+  font-size: 1.6rem;
+}
+.login-error {
+  color: red;
+  font-size: 1.5rem;
+  display: block;
+  margin-top: 3px;
+}

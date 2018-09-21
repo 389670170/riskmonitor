@@ -1,0 +1,52 @@
+<!-- 系统日志 -->
+<div class="log-content-top">
+  <form class="rm-form" method="post" action="/riskmonitor/log/app">
+    <label>开始时间：</label>
+    <input type="text" name="starttime" class="timepicker" value="{{ d.data.params.starttime || '' }}" readonly>
+    <label>-</label>
+    <input type="text" name="endtime" class="timepicker" value="{{ d.data.params.endtime || '' }}" readonly>&emsp;
+    <label>选择级别：</label>
+    <select name="level">
+      <option value="">不限</option>
+      <option value="debug"{{# if(d.data.params.level === 'debug') { }} selected{{# } }}>debug</option>
+      <option value="info"{{# if(d.data.params.level === 'info') { }} selected{{# } }}>info</option>
+      <option value="warning"{{# if(d.data.params.level === 'warning') { }} selected{{# } }}>warning</option>
+      <option value="error"{{# if(d.data.params.level === 'error') { }} selected{{# } }}>error</option>
+    </select>&emsp;
+    <input type="submit" class="rm-btn rm-btn-secondary btn-search-log" value="查询">
+  </form>
+</div>
+<div class="log-content-bottom">
+  <div class="content-left scrolly">
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="level-th">级别</th>
+        <th>时间</th>
+        <th>信息</th>
+        <th class="message-th">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{# for(var i = 0, len = d.data.data.length; i < len; i++) { }}
+      {{# var item = d.data.data[i], itemStr = JSON.stringify(item); }}
+      <tr>
+        <td>
+          <div class="log-level {{ d.level(item) }}"></div>
+        </td>
+        <td>{{ d.dateformat(item) }}</td>
+        <td>
+          <span class="log-message">{{ item.message }}</span>
+        </td>
+        <td>
+          <div class="hide">{{ itemStr }}</div>
+          <button class="rm-btn rm-btn-small btn-search-details">查看详情</button>
+        </td>
+      </tr>
+      {{# } }}
+      </tbody>
+    </table>
+  </div>
+  <div id="jsonDetail" class="content-right">
+  </div>
+</div>

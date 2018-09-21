@@ -1,0 +1,90 @@
+<div class="content-left">
+  <div class="title-group">
+    <span class="title">正在交易账单</span>
+    <span class="sub-title">账户号码：{{ d.data.data.nameNum }}</span>
+  </div>
+  <div class="total-table">
+    <div class="total-table-col">
+      <span class="total-name">总盈利</span>
+      <div class="total-value">{{ d.data.data.profit || 0 }}</div>
+    </div>
+    <div class="total-table-col">
+      <span class="total-name">账户余额</span>
+      <div class="total-value">{{ d.data.data.balance }}</div>
+    </div>
+    <div class="total-table-col">
+      <span class="total-name">净值</span>
+      <div class="total-value">{{ d.data.data.equity }}</div>
+    </div>
+  </div>
+  <div class="title-group mt20px">
+    <span class="title">交易信息</span>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>开始时间</th>
+      <th>订单编号</th>
+      <th>交易类型</th>
+      <th>交易种类</th>
+      <th>收盘价格</th>
+      <th>开仓价格</th>
+      <th>盈利</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{# for(let i = 0, len = d.data.nows.length; i < len; i++) { }}
+    {{# let nowsi = d.data.nows[i], st = nowsi.ctm_start; }}
+    <tr>
+      <td>{{ d.date(st) }}</td>
+      <td>{{ nowsi.order_number }}</td>
+      <td>
+        {{# if(nowsi.order_type === "1") { }}
+          卖单
+        {{# } else { }}
+          买单
+        {{# } }}
+      </td>
+      <td>
+        {{ nowsi.order_symbol }}
+      </td>
+      <td>{{ nowsi.order_closePrice.toFixed(5) }}</td>
+      <td>{{ nowsi.order_openPrice.toFixed(5) }}</td>
+      <td>{{ nowsi.order_profit.toFixed(2) }}</td>
+    </tr>
+    {{# } }}
+    </tbody>
+  </table>
+  {{# if(d.pages.pages > 1) { }}
+    {{ include page }}
+  {{# } }}
+</div>
+<div class="content-right">
+  <div class="right-panel mt2em">
+    <table class="table account-right-total">
+      <tbody>
+      <tr>
+        {{# var m = d.data.data.margin, fm = d.data.data.freeMargin; }}
+        <td>
+          <div class="data-chart data-chart1" style="height: {{ d.chartHeigth(m, fm) }}%"></div>
+        </td>
+        <td>
+          <div class="data-chart data-chart2" style="height: {{ d.chartHeigth(fm, m) }}%;"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>已用预付款<br>{{ m.toFixed(2) }}</td>
+        <td>可用预付款<br>{{ fm.toFixed(2) }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="right-panel">
+    <div class="histroy-order-wrapper">
+      <a href="/riskmonitor/account/history?_id={{ d.curAside }}">
+        <i class="iconfont icon-rili"></i>
+        <br><span class="histroy-text">历史订单</span>
+      </a>
+    </div>
+  </div>
+</div>

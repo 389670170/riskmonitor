@@ -1,0 +1,73 @@
+<div class="content-left">
+  <div class="title-group">
+    <span class="sub-title"><a href="/riskmonitor/account?_id={{ d.curAside }}"
+        class="history-back-link">账户信息</a> &gt; 历史记录</span>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>种类</th>
+      <th>类型</th>
+      <th>仓位</th>
+      <th>单价</th>
+      <th>总价格</th>
+      <th>平均成本</th>
+      <th>浮盈</th>
+      <th>盈利</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{# for(let i = 0, len = d.data._id.length; i < len; i++) { }}
+    {{# let hi = d.data._id[i], st = hi.ctm_start; }}
+      <tr>
+        <td>{{ d.date(st) }}</td>
+        <td>{{ d.date(hi.ctm_end) }}</td>
+        <td>{{ hi.order_number }}</td>
+        <td>
+          {{# if(hi.order_type === "1") { }}
+            卖单
+          {{# } else { }}
+            买单
+          {{# } }}
+        </td>
+        <td>
+          {{ hi.order_symbol }}
+        </td>
+        <td>{{ hi.order_closePrice.toFixed(5) }}</td>
+        <td>{{ hi.order_openPrice.toFixed(5) }}</td>
+        <td>{{ hi.order_profit.toFixed(2) }}</td>
+      </tr>
+    {{# } }}
+    </tbody>
+  </table>
+  {{# if(d.pages.pages > 1) { }}
+  {{ include page }}
+  {{# } }}
+</div>
+<div class="content-right">
+  <div class="tar">
+    <select id="nd" class="date-select" data-baseurl="/riskmonitor/account/history?_id={{ d.curAside }}">
+      <option value="3"{{# if(d.data.nd == 3) { }} selected{{# } }}>最近三天</option>
+      <option value="5"{{# if(d.data.nd == 5) { }} selected{{# } }}>最近五天</option>
+      <option value="7"{{# if(d.data.nd == 7) { }} selected{{# } }}>最近一周</option>
+    </select>
+  </div>
+  <div class="right-panel">
+    <div class="history-total-wrapper">
+      <h4>总盈利</h4>
+      <h2>{{ d.data.data.profit || 0 }}</h2>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="history-total-wrapper">
+      <h4>账户余额</h4>
+      <h2>{{ d.data.data.balance }}</h2>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="history-total-wrapper">
+      <h4>净值</h4>
+      <h2>{{ d.data.data.equity }}</h2>
+    </div>
+  </div>
+</div>

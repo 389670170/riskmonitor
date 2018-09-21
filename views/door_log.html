@@ -1,0 +1,60 @@
+<!-- 门禁系统 -->
+<div class="log-content-top">
+  <form class="rm-form" method="get" action="/riskmonitor/log">
+    <label>开始时间：</label>
+    <input type="text" name="start" class="datepicker" value="{{ d.data.params.start || '' }}" readonly>
+    <label>&nbsp;-&nbsp;</label>
+    <input type="text" name="end" class="datepicker" value="{{ d.data.params.end || '' }}" readonly>&emsp;
+    <input type="submit" class="rm-btn rm-btn-secondary btn-search-log" value="查询">
+  </form>
+</div>
+<div class="log-content-bottom scrolly">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>编号</th>
+      <th>人员</th>
+      <th>时间</th>
+      <th>打卡类型</th>
+      <th>部门</th>
+      <th>设备编号</th>
+      <th>设备</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{# for(let i = 0, len = d.data.data.length; i < len; i++) { }}
+    {{# let atten = d.data.data[i]; }}
+    <tr>
+      <td>{{ atten.atten_id }}</td>
+      <td>{{ atten.atten_uid }}</td>
+      <td>{{ atten.realname }}</td>
+      <td>{{ d.atten_time(atten.atten_time) }}</td>
+      <td>
+        {{# if(atten.atten_type == 0) { }}
+        密码
+        {{# } else if(atten.atten_type == 1) { }}
+        指纹
+        {{# } else if(atten.atten_type == 2) { }}
+        打卡
+        {{# } else if(atten.atten_type == 9) { }}
+        其它
+        {{# } else if(atten.atten_type == -1) { }}
+        补签
+        {{# } else if(atten.atten_type == 20) { }}
+        手机APP
+        {{# } else if(atten.atten_type == 99) { }}
+        微信
+        {{# } }}
+      </td>
+      <td>{{ atten.departname }}</td>
+      <td>{{ atten.atten_device }}</td>
+      <td>{{ atten.remark }}</td>
+    </tr>
+    {{# } }}
+    </tbody>
+  </table>
+  {{# if(d.pages.pages > 1) { }}
+  {{ include page }}
+  {{# } }}
+</div>

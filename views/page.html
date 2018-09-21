@@ -1,0 +1,46 @@
+<div class="rm-page">
+  {{# let curr = d.pages.curr, pages = d.pages.pages; }}
+
+  {{# if(curr !== 1) { }}
+    <!-- 当前页不是首页时显示上一页按钮 -->
+    <a href="{{ d.pages.pageurl(curr - 1) }}">&lt;</a>
+  {{# } }}
+
+  {{# if(curr > 3) { }}
+    <!-- 首页按钮,只有在当前页大于3的时候才显示,因为当前页小于3的时候,遍历显示已经能显示出首页了 -->
+    <a href="{{ d.pages.pageurl(1) }}">1</a>
+  {{# } }}
+
+  {{# if(curr > 4) { }}
+    <!-- 左边的省略号，如果小于4,刚好收尾相连到1, 不用显示 -->
+    <span v-if="curr > 4">...</span>
+  {{# } }}
+
+  {{# let p5 = [curr-2, curr-1, curr, curr+1, curr+2]; }}
+  {{# for(let i = 0; i < 5; i++) { }}
+    {{# let n = p5[i]; }}
+    <!-- 一共相邻显示5个元素 -->
+    {{# if(n === curr) { }}
+      <span class="rm-page-curr">{{ n }}</span>
+    {{# } else { }}
+      {{# if(n > 0 && n <= pages) { }}
+        <a href="{{ d.pages.pageurl(n) }}">{{ n }}</a>
+      {{# } }}
+    {{# } }}
+  {{# } }}
+
+  {{# if(curr < pages - 3) { }}
+    <!-- 相邻5个元素,如果小于末尾3个元素之内,刚好和尾页首尾相连 -->
+    <span>...</span>
+  {{# } }}
+
+  {{# if(curr < pages - 2) { }}
+    <!-- 显示尾页按钮, 只有在当前页低于尾页2页的时候 -->
+    <a href="{{ d.pages.pageurl(pages) }}">{{ pages }}</a>
+  {{# } }}
+
+  {{# if(curr != pages) { }}
+    <!-- 如果当前页不是尾页, 显示下一页按钮 -->
+    <a href="{{ d.pages.pageurl(curr + 1) }}">&gt;</a>
+  {{# } }}
+</div>

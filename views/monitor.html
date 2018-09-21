@@ -1,0 +1,12 @@
+<div class="content-top">
+  <div id="player" style="width:640px;max-height:480px;"></div>
+</div>
+<div class="content-bottom">
+  {{# for(let i = 0, len = d.data.data.lives.length; i < len; i++) { }}
+  {{# let li = d.data.data.lives[i]; }}
+  <input id="m{{ i }}" type="radio" name="monitor"
+         value="{{ d.data.data.baseUrl }}{{ li.url }}"
+         class="monitor-item"{{# if(i === 0) { }} checked{{# } }}>
+  <label for="m{{ i }}">{{ li.name }}</label>
+  {{# } }}
+</div>

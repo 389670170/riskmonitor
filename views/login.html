@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <!-- IE 浏览器运行最新渲染模式(win10, IE 10) -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 浏览器运行高速模式, 针对国内所谓的双核浏览器 -->
+  <meta name="renderer" content="webkit">
+  <!-- 兼容移动设备 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="http://oyogbl12f.bkt.clouddn.com/favicon.ico" type="image/x-icon">
+  <title>登录</title>
+  <link rel="stylesheet" href="/riskmonitor/styles/login.min.css">
+</head>
+<body>
+<div class="main-panel">
+  <h1>AI智客量化交易系统</h1>
+  <form action="/riskmonitor/login" method="post" class="rm-form rm-form-aligned">
+    {{# if(d.error) { }}
+    <span class="login-error">{{ d.error }}</span>
+    {{# } }}
+    <input name="username" type="text" placeholder="用户名" required>
+    <input name="password" type="password" placeholder="密码,至少6位" required pattern="\S{6,}">
+    <button class="rm-btn rm-btn-secondary">立即登录</button>
+  </form>
+</div>
+<div class="hock"></div>
+</body>
+</html>
